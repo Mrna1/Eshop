@@ -1,13 +1,6 @@
 package cz.eshop.entity;
 
-import org.hibernate.annotations.*;
-
-import org.hibernate.annotations.CascadeType;
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
@@ -59,6 +52,7 @@ public class Product {
     public void removeCategory(Category category)
     {
         this.categories.remove(category);
+        categories.remove(this);
     }
 
     public Long getId() {
@@ -106,32 +100,7 @@ public class Product {
     }
 
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        Product product = (Product) o;
-
-        if (id != null ? !id.equals(product.id) : product.id != null) return false;
-        if (!name.equals(product.name)) return false;
-        if (!price.equals(product.price)) return false;
-        if (Description != null ? !Description.equals(product.Description) : product.Description != null) return false;
-        if (!addedDate.equals(product.addedDate)) return false;
-        return categories != null ? categories.equals(product.categories) : product.categories == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + name.hashCode();
-        result = 31 * result + price.hashCode();
-        result = 31 * result + (Description != null ? Description.hashCode() : 0);
-        result = 31 * result + addedDate.hashCode();
-        result = 31 * result + (categories != null ? categories.hashCode() : 0);
-        return result;
-    }
 
     @Override
     public String toString() {

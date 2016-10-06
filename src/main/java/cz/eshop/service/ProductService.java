@@ -5,7 +5,6 @@ import cz.eshop.entity.Product;
 import cz.eshop.repository.ProductRepository;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -15,7 +14,6 @@ import java.util.List;
  * Created by frantisek.manak on 2.10.2016.
  */
 @Service
-@Component
 public class ProductService {
 
     @Autowired
@@ -52,6 +50,11 @@ public class ProductService {
     }
 
     public void removeCategory(Product product, Category category) {
+        if (product == null) {
+            throw new ServiceException(
+                    "Product doesn't exist"
+            );
+        }
         product.removeCategory(category);
     }
 

@@ -65,29 +65,7 @@ public class Category {
         this.products = products;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        Category category = (Category) o;
-
-        if (id != null ? !id.equals(category.id) : category.id != null) return false;
-        if (!name.equals(category.name)) return false;
-        if (Description != null ? !Description.equals(category.Description) : category.Description != null)
-            return false;
-        return products != null ? products.equals(category.products) : category.products == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + name.hashCode();
-        result = 31 * result + (Description != null ? Description.hashCode() : 0);
-        result = 31 * result + (products != null ? products.hashCode() : 0);
-        return result;
-    }
 
     @Override
     public String toString() {

@@ -17,6 +17,10 @@ import java.util.Date;
 @SpringBootTest
 public class EshopApplicationTests {
 
+	@Autowired
+	ProductService productService;
+	@Autowired
+	CategoryService categoryService;
 	private	Product product1 = new Product();
 	private	Product product2 = new Product();
 	private	Product product3 = new Product();
@@ -25,19 +29,10 @@ public class EshopApplicationTests {
 	private	Category category3 = new Category();
 	private Date date = new Date();
 
-
-
-	@Autowired
-	ProductService productService;
-
-	@Autowired
-	CategoryService categoryService;
-
 	@Test
 	public void serviceSave() {
-		product1.setId((long) 200);
 		product1.setName("Test4");
-		product1.setPrice(BigDecimal.valueOf(210.00));
+		product1.setPrice(new BigDecimal("1001"));
 
 		productService.createProduct(product1);
 	}
@@ -50,29 +45,29 @@ public class EshopApplicationTests {
 
 	@Test
 	public void serviceRemoveAndFindById(){
-		productService.removeProduct(productService.findProductById((long)1));
+		productService.removeProduct(productService.findProductById(1L));
 
 	}
 
 	@Test
 	public void serviceFindByMaxPrice(){
-		productService.findAllToMaxPrice(BigDecimal.valueOf(200.00)).stream()
+		productService.findAllToMaxPrice(new BigDecimal("1001")).stream()
 				.forEach(System.out::println);
 	}
 
 	@Test
 	public void serviceAddCategoryToProduct(){
 		product1.setName("Cat");
-		product1.setPrice(BigDecimal.valueOf(50));
+		product1.setPrice(new BigDecimal("50"));
 		product1.setDescription("Some Cat");
 		product1.setAddedDate(date);
 
 		product2.setName("Dog");
-		product2.setPrice(BigDecimal.valueOf(150));
+		product2.setPrice(new BigDecimal("150"));
 		product2.setAddedDate(date);
 
 		product3.setName("Fish");
-		product3.setPrice(BigDecimal.valueOf(250));
+		product3.setPrice(new BigDecimal("250"));
 		product3.setDescription("Some Fish");
 		product3.setAddedDate(date);
 
@@ -84,17 +79,18 @@ public class EshopApplicationTests {
 		category3.setName("White");
 		category3.setDescription("White animals");
 
-		productService.createProduct(product1);
-		productService.createProduct(product2);
-		productService.createProduct(product3);
-
 		categoryService.createCateogry(category1);
 		categoryService.createCateogry(category2);
 		categoryService.createCateogry(category3);
 
-		productService.addCategory(productService.findProductById((long) 1), categoryService.findCategoryById((long) 1));
-		productService.addCategory(productService.findProductById((long) 2), categoryService.findCategoryById((long) 1));
-		productService.addCategory(productService.findProductById((long) 2), categoryService.findCategoryById((long) 2));
+		productService.addCategory(product1, category1);
+		productService.addCategory(product2, category1);
+		productService.addCategory(product2, category2);
+
+		productService.createProduct(product1);
+		productService.createProduct(product2);
+		productService.createProduct(product3);
+
 
 
 	}
