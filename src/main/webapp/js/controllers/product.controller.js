@@ -1,20 +1,10 @@
 'use strict';
 
-// tu by som odporucal deklarovat controller nasledovne:
-// angular.module('eshop').controller(function([injectors eg. $scope, $http]) {})
+angular.module('eshop')
+    .controller('ProductController', function ($scope, ProductService) {
 
-var ProductController = function($scope, $http) {
-    $scope.fetchCarsList = function() {
-        $http.get('product/search/all').success(function(productList){
-            $scope.cars = productList;
-        });
-    };
+        $scope.fetchCarsList = ProductService.getAll();
 
-    $scope.findProductById = function(id) {
-        $http.get('/product/search/' + id).success(function() {
-            $scope.fetchCar();
-        });
-    };
+        $scope.findProductById = ProductService.findById(1);
 
-    };
-
+    });
