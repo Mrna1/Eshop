@@ -11,3 +11,4 @@ angular.module('eshop')
 
         return vm;
     });
+
