@@ -12,7 +12,9 @@
         <li><a href="#/Product">Product</a></li>
     </ul>
     <hr class=""/>
-    <div>here: {{productController.someProperty}}</div>
+    <div ng-repeat="product in productController.fetchCarsList">
+            {{product}}
+    </div>
 </div>
 
 <!-- BOWER -->

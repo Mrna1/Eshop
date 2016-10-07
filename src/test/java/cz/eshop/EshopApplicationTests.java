@@ -39,13 +39,19 @@ public class EshopApplicationTests {
 
 	@Test
 	public void serviceFindAll(){
-		productService.findAllProducts().stream()
-				.forEach(System.out::println);
+		System.out.println(productService.findAllProducts().get(0).toString());
 	}
 
 	@Test
 	public void serviceRemoveAndFindById(){
 		productService.removeProduct(productService.findProductById(1L));
+
+	}
+
+	@Test
+	public void findById() {
+		System.out.println(productService.findProductById(1L).toString());
+
 
 	}
 
