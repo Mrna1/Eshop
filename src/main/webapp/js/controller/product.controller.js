@@ -7,7 +7,7 @@ angular.module('eshop')
 
         vm.someProperty = "Hello world";
         vm.fetchCarsList = ProductService.getAll();
-        // vm.findProductById = ProductService.findById(1);
+        vm.findProductById = ProductService.findById(1);
 
         return vm;
     });

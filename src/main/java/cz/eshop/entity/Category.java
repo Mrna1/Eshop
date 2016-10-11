@@ -1,7 +1,5 @@
 package cz.eshop.entity;
 
-import net.minidev.json.annotate.JsonIgnore;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -28,8 +26,7 @@ public class Category {
     @Column(name = "DESCRIPTION")
     private String Description;
 
-    @ManyToMany(mappedBy = "categories", fetch = FetchType.LAZY)
-    @JsonIgnore
+    @ManyToMany(mappedBy = "categories", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Product> products = new HashSet<Product>();
 
     public void addProduct(Product product) {

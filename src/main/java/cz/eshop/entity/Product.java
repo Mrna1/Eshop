@@ -1,5 +1,7 @@
 package cz.eshop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -37,11 +39,13 @@ public class Product {
     @Temporal(TemporalType.DATE)
     private Date addedDate;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "PRODUCT_TO_CATEGORY", joinColumns = {
             @JoinColumn(name = "PRODUCT_ID", nullable = false, updatable = false) },
             inverseJoinColumns = { @JoinColumn(name = "CATEGORY_ID",
                     nullable = false, updatable = false) })
+    @JsonIgnore
     private Set<Category> categories = new HashSet<Category>();
 
     public void setCategory(Category c) {

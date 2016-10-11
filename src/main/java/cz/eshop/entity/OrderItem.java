@@ -1,5 +1,6 @@
 package cz.eshop.entity;
 
+
 import javax.persistence.*;
 
 /**

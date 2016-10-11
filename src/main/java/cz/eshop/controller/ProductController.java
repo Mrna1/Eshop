@@ -29,4 +29,17 @@ public class ProductController {
         return productService.findAllProducts();
     }
 
+
+//    @RequestMapping(value = "product/create", method = RequestMethod.POST)
+//    public String create(@Valid @ModelAttribute("productCreate") Product product, BindingResult bindingResult,
+//                         Model model, RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder) {
+//
+//
+//        //create product
+//        Long id = productFacade.createProduct(formBean);
+//        //report success
+//        redirectAttributes.addFlashAttribute("alert_success", "Product " + id + " was created");
+//        return "redirect:" + uriBuilder.path("/product/search/{id}").buildAndExpand(id).encode().toUriString();
+//    }
+
 }

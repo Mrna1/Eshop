@@ -12,10 +12,19 @@
         <li><a href="#/Product">Product</a></li>
     </ul>
     <hr class=""/>
-    <div ng-repeat="product in productController.fetchCarsList">
-            {{product}}
-    </div>
 </div>
+
+<table ng-controller="ProductController as productController">
+    <tr>
+        <th>Product ID</th>
+        <th>Product name</th>
+    </tr>
+    <tr ng-repeat="product in productController.fetchCarsList">
+        <td>sdfs{{product.id}}</td>
+        <td>sdfs{{product.name}}</td>
+    </tr>
+</table>
+
 
 <!-- BOWER -->
 <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
@@ -26,4 +35,5 @@
 <script type="text/javascript" src="js/service/product.service.js"></script>
 </body>
 </html>
+
 
