@@ -1,7 +1,11 @@
 {
-  "name": "eshop",
+  "name": "demo",
+  "authors": [
+    "Matej Kobza <mates@ravers.sk>"
+  ],
   "description": "",
   "main": "",
+  "moduleType": [],
   "license": "MIT",
   "homepage": "index.html",
   "ignore": [

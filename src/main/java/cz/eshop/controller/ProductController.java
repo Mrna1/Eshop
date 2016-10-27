@@ -3,10 +3,7 @@ package cz.eshop.controller;
 import cz.eshop.entity.Product;
 import cz.eshop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,17 +26,9 @@ public class ProductController {
         return productService.findAllProducts();
     }
 
-
-//    @RequestMapping(value = "product/create", method = RequestMethod.POST)
-//    public String create(@Valid @ModelAttribute("productCreate") Product product, BindingResult bindingResult,
-//                         Model model, RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder) {
-//
-//
-//        //create product
-//        Long id = productFacade.createProduct(formBean);
-//        //report success
-//        redirectAttributes.addFlashAttribute("alert_success", "Product " + id + " was created");
-//        return "redirect:" + uriBuilder.path("/product/search/{id}").buildAndExpand(id).encode().toUriString();
-//    }
+    @RequestMapping(value = "product/create", method = RequestMethod.POST)
+    public void createProduct(@RequestBody Product product) {
+        productService.createProduct(product);
+    }
 
 }
