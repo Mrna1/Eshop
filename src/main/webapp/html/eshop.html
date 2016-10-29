@@ -28,7 +28,15 @@
             </div>
         </div>
     </nav>
-    
+
+    <table border="2">
+        <tr>
+            <th>Name</th>
+        </tr>
+        <tr ng-repeat="subcategory in subcategoryController.subcategories">
+            <td>{{subcategory.name}}</td>
+        </tr>
+    </table>
 
     <h1>Eshop</h1>
 
