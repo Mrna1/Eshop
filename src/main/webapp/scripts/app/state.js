@@ -11,16 +11,25 @@ angular.module('demo')
                 views: {
                     'content': {
                         templateUrl: 'html/home.html',
-                        controller: 'HomeController as homeController'
                     }
                 }
             })
-            .state('state1', {
-                url: '/123',
+        $stateProvider
+            .state('eshop', {
+                url: '/eshop',
                 views: {
                     'content': {
-                        templateUrl: 'html/new.product.html',
-                        controller: 'NewProductController as newProductController'
+                        templateUrl: 'html/eshop.html',
+                        controller: 'SubcategoryController as subcategoryController'
+                    }
+                }
+            })
+        $stateProvider
+            .state('category_1.1', {
+                url: '/category_1.1',
+                views: {
+                    'content': {
+                        templateUrl: 'html/category_1.1.html',
                     }
                 }
             });

@@ -10,15 +10,15 @@ import java.util.Set;
  * Created by frantisek.manak on 2.10.2016.
  */
 @Entity
-@Table(name = "CATEGORY")
-public class Category {
+@Table(name = "SUBCATEGORY")
+public class Subcategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CATEGORY_ID", unique = true)
+    @Column(name = "SUBCATEGORY_ID", unique = true)
     private Long id;
 
-    @Column(name = "CATEGORY_NAME", unique = true)
+    @Column(name = "SUBCATEGORY_NAME", unique = true)
     @NotNull
     @Size(min = 3, max = 50)
     private String name;
@@ -26,7 +26,7 @@ public class Category {
     @Column(name = "DESCRIPTION")
     private String Description;
 
-    @ManyToMany(mappedBy = "categories", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "subcategories", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Product> products = new HashSet<Product>();
 
     public void addProduct(Product product) {
@@ -69,7 +69,7 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category{" +
+        return "Subcategory{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", Description='" + Description + '\'' +

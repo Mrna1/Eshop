@@ -8,17 +8,36 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body ng-app="demo">
+<div id="page-wrap">
 
-<div id="menu" class="container">
-    <ul class="nav nav-pills">
-        <li class="active"><a data-toggle="pill" href="javascript:void(0);" ui-sref="home"
-                              ui-sref-active="home">Home</a></li>
-        <li><a data-toggle="pill" href="javascript:void(0);" ui-sref="state1" ui-sref-active="state1">Produkty</a></li>
-        <li><a data-toggle="pill" href="#menu2">Menu 2</a></li>
-        <li><a data-toggle="pill" href="#menu3">Menu 3</a></li>
-    </ul>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Eshop Franta</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="javascript:void(0);" ui-sref="home" ui-sref-active="home">Home</a></li>
+                    <li><a href="javascript:void(0);" ui-sref="eshop" ui-sref-active="eshop">Eshop</a></li>
+                    <li><a href="#">Galerie</a></li>
+                    <li><a href="#">Kontakt</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <img id="header-pic" src="pic/kolo.png">
+
 </div>
-
 
 
 <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
@@ -28,14 +47,11 @@
 <script type="text/javascript" src="scripts/app/app.js"></script>
 <script type="text/javascript" src="scripts/app/state.js"></script>
 <script type="text/javascript" src="scripts/controller/home.controller.js"></script>
-<script type="text/javascript" src="scripts/controller/newProduct.controller.js"></script>
+<script type="text/javascript" src="scripts/controller/subcategory.controller.js"></script>
 
 <!-- SERVICE -->
-<script type="text/javascript" src="scripts/service/product.service.js"></script>
+<script type="text/javascript" src="scripts/service/subcategory.service.js"></script>
 
 
-<div ui-view="content">
-    toto
-</div>
 </body>
 </html>

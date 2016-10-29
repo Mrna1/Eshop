@@ -1,0 +1,46 @@
+<div id="page-wrap">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="html/eshop.html">Kola<span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:void(0);" ui-sref="category_1.1" ui-sref-active="category_1.1">Silniční
+                                kola</a></li>
+                            <li><a href="#">Horská kola</a></li>
+                            <li><a href="#">Elektrické kola</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="html/eshop.html">Koloběžky<span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Silniční kola</a></li>
+                            <li><a href="#">Horská kola</a></li>
+                            <li><a href="#">Elektrické kola</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <table border="2">
+        <tr>
+            <th>Name</th>
+        </tr>
+        <tr ng-repeat="subcategory in subcategoryController.subcategories">
+            <td>{{subcategory.name}}</td>
+        </tr>
+    </table>
+
+    <h1>Eshop</h1>
+
+    Some eshop things
+
+
+</div>

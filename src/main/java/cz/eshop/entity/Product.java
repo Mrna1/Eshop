@@ -41,22 +41,22 @@ public class Product {
 
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "PRODUCT_TO_CATEGORY", joinColumns = {
+    @JoinTable(name = "PRODUCT_TO_SUBCATEGORY", joinColumns = {
             @JoinColumn(name = "PRODUCT_ID", nullable = false, updatable = false) },
-            inverseJoinColumns = { @JoinColumn(name = "CATEGORY_ID",
+            inverseJoinColumns = {@JoinColumn(name = "SUBCATEGORY_ID",
                     nullable = false, updatable = false) })
     @JsonIgnore
-    private Set<Category> categories = new HashSet<Category>();
+    private Set<Subcategory> subcategories = new HashSet<Subcategory>();
 
-    public void setCategory(Category c) {
-        categories.add(c);
+    public void setCategory(Subcategory c) {
+        subcategories.add(c);
         c.addProduct(this);
     }
 
-    public void removeCategory(Category category)
+    public void removeCategory(Subcategory subcategory)
     {
-        this.categories.remove(category);
-        categories.remove(this);
+        this.subcategories.remove(subcategory);
+        subcategories.remove(this);
     }
 
     public Long getId() {
@@ -99,22 +99,9 @@ public class Product {
         this.addedDate = addedDate;
     }
 
-    public Set<Category> getCategories() {
-        return categories;
+    public Set<Subcategory> getCategories() {
+        return subcategories;
     }
 
 
-
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", Description='" + Description + '\'' +
-                ", addedDate=" + addedDate +
-                ", categories=" + categories +
-                '}';
-    }
 }

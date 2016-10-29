@@ -1,9 +1,10 @@
 package cz.eshop;
 
-import cz.eshop.entity.Category;
+import cz.eshop.controller.SubcategoryController;
 import cz.eshop.entity.Product;
-import cz.eshop.service.CategoryService;
+import cz.eshop.entity.Subcategory;
 import cz.eshop.service.ProductService;
+import cz.eshop.service.SubcategoryService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -19,14 +21,20 @@ public class EshopApplicationTests {
 
 	@Autowired
 	ProductService productService;
+
 	@Autowired
-	CategoryService categoryService;
+	SubcategoryController subcategoryController;
+
+	@Autowired
+	SubcategoryService subcategoryService;
+
+
 	private	Product product1 = new Product();
 	private	Product product2 = new Product();
 	private	Product product3 = new Product();
-	private	Category category1 = new Category();
-	private	Category category2 = new Category();
-	private	Category category3 = new Category();
+	private Subcategory subcategory1 = new Subcategory();
+	private Subcategory subcategory2 = new Subcategory();
+	private Subcategory subcategory3 = new Subcategory();
 	private Date date = new Date();
 
 	@Test
@@ -77,28 +85,34 @@ public class EshopApplicationTests {
 		product3.setDescription("Some Fish");
 		product3.setAddedDate(date);
 
-		category1.setName("Black");
-		category1.setDescription("Black animals");
+		subcategory1.setName("Silnicni kola");
+		subcategory1.setDescription("Black animals");
 
-		category2.setName("Red");
+		subcategory2.setName("Horska kola");
 
-		category3.setName("White");
-		category3.setDescription("White animals");
+		subcategory3.setName("Elektricke kola");
+		subcategory3.setDescription("White animals");
 
-		categoryService.createCateogry(category1);
-		categoryService.createCateogry(category2);
-		categoryService.createCateogry(category3);
+		subcategoryService.createSubcategory(subcategory1);
+		subcategoryService.createSubcategory(subcategory2);
+		subcategoryService.createSubcategory(subcategory3);
 
-		productService.addCategory(product1, category1);
-		productService.addCategory(product2, category1);
-		productService.addCategory(product2, category2);
+		productService.addCategory(product1, subcategory1);
+		productService.addCategory(product2, subcategory1);
+		productService.addCategory(product2, subcategory2);
 
 		productService.createProduct(product1);
 		productService.createProduct(product2);
 		productService.createProduct(product3);
+	}
 
-
-
+	@Test
+	public void subcategoryTest() {
+		List<Subcategory> list = subcategoryController.searchForAllProducts();
+		for (Subcategory value : list) {
+			String str = value.getName();
+			System.out.println(str);
+		}
 	}
 
 }

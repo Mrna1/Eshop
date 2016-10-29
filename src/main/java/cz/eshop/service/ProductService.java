@@ -1,7 +1,7 @@
 package cz.eshop.service;
 
-import cz.eshop.entity.Category;
 import cz.eshop.entity.Product;
+import cz.eshop.entity.Subcategory;
 import cz.eshop.repository.ProductRepository;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,23 +39,23 @@ public class ProductService {
         return productRepository.findProductbyMaxPrice(price);
     }
 
-    public void addCategory(Product product, Category category) {
-        if (product.getCategories().contains(category)) {
+    public void addCategory(Product product, Subcategory subcategory) {
+        if (product.getCategories().contains(subcategory)) {
             throw new ServiceException(
-                    "Product already contais this category. Product: "
-                            + product.getId() + ", category: "
-                            + category.getId());
+                    "Product already contais this subcategory. Product: "
+                            + product.getId() + ", subcategory: "
+                            + subcategory.getId());
         }
-        product.setCategory(category);
+        product.setCategory(subcategory);
     }
 
-    public void removeCategory(Product product, Category category) {
+    public void removeCategory(Product product, Subcategory subcategory) {
         if (product == null) {
             throw new ServiceException(
                     "Product doesn't exist"
             );
         }
-        product.removeCategory(category);
+        product.removeCategory(subcategory);
     }
 
 
