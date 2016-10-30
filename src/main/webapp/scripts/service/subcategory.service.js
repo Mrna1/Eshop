@@ -7,6 +7,11 @@ angular.module('demo')
                 return $http.get('/subcategory/search/all').then(function(response) {
                     return response.data;
                 });
+            },
+            loadSubcategoriesByCategory: function(categoryName) {
+                return $http.get('/subcategory/search/' + categoryName).then(function(response) {
+                    return response.data;
+                  })
+             }
             }
-        }
-    });
+          });

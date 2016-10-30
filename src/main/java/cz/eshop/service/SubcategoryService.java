@@ -1,7 +1,8 @@
 package cz.eshop.service;
 
+import cz.eshop.entity.Category;
 import cz.eshop.entity.Subcategory;
-import cz.eshop.repository.SubCategoryRepository;
+import cz.eshop.repository.SubcategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,23 +15,26 @@ import java.util.List;
 public class SubcategoryService {
 
     @Autowired
-    SubCategoryRepository subCategoryRepository;
+    SubcategoryRepository subcategoryRepository;
 
     public void createSubcategory(Subcategory subcategory) {
-        subCategoryRepository.save(subcategory);
+        subcategoryRepository.save(subcategory);
     }
 
     public void removeSubcategory(Subcategory subcategory) {
-        subCategoryRepository.delete(subcategory);
-    }
-
-    public Subcategory findSubcategoryById(Long id) {
-        return subCategoryRepository.findOne(id);
+        subcategoryRepository.delete(subcategory);
     }
 
     public List<Subcategory> findAllSubcategories() {
-        return subCategoryRepository.findAll();
+        return subcategoryRepository.findAll();
     }
 
+    public void addCategory(Subcategory subcategory, Category category) {
+        subcategory.setCategory(category);
+    }
+
+    public List<Subcategory> findSubcategoryByCategoryName(String categoryName) {
+        return subcategoryRepository.findSubcategoriesByCategory(categoryName);
+    }
 
 }

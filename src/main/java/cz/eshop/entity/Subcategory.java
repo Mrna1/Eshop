@@ -1,5 +1,7 @@
 package cz.eshop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -26,7 +28,15 @@ public class Subcategory {
     @Column(name = "DESCRIPTION")
     private String Description;
 
+    @ManyToOne
+    @JoinColumn(name = "CATEGORY_ID",
+            foreignKey = @ForeignKey(name = "CATEGORY_ID_FK")
+    )
+    private Category category;
+
+
     @ManyToMany(mappedBy = "subcategories", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<Product> products = new HashSet<Product>();
 
     public void addProduct(Product product) {
@@ -57,22 +67,11 @@ public class Subcategory {
         Description = description;
     }
 
-    public Set<Product> getProducts() {
-        return products;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setProducts(Set<Product> products) {
-        this.products = products;
-    }
-
-
-
-    @Override
-    public String toString() {
-        return "Subcategory{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", Description='" + Description + '\'' +
-                '}';
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

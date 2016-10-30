@@ -5,23 +5,12 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="html/eshop.html">Kola<span
+                    <li class="dropdown" ng-repeat="category in generalController.categories">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="html/eshop.html">{{category.name}}<span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="javascript:void(0);" ui-sref="category_1.1" ui-sref-active="category_1.1">Silniční
-                                kola</a></li>
-                            <li><a href="#">Horská kola</a></li>
-                            <li><a href="#">Elektrické kola</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="html/eshop.html">Koloběžky<span
-                                class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Silniční kola</a></li>
-                            <li><a href="#">Horská kola</a></li>
-                            <li><a href="#">Elektrické kola</a></li>
+                            <li><a href="javascript:void(0);" ng-repeat="subcategory in generalController.subcategories"
+                                   ui-sref="category_1.1" ui-sref-active="category_1.1">{{subcategory.name}}</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -33,7 +22,7 @@
         <tr>
             <th>Name</th>
         </tr>
-        <tr ng-repeat="subcategory in subcategoryController.subcategories">
+        <tr ng-repeat="subcategory in generalController.subcategories">
             <td>{{subcategory.name}}</td>
         </tr>
     </table>

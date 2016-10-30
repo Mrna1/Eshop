@@ -20,7 +20,7 @@ angular.module('demo')
                 views: {
                     'content': {
                         templateUrl: 'html/eshop.html',
-                        controller: 'SubcategoryController as subcategoryController'
+                        controller: 'GeneralController as generalController'
                     }
                 }
             })

@@ -5,5 +5,7 @@ package cz.eshop;
  */
 public final class Constans {
 
-    public final static String API_ROOT_CATEGORY = "/subcategory";
+    public final static String API_ROOT_SUBCATEGORY = "/subcategory";
+    public final static String API_ROOT_PRODUCT = "/product";
+    public final static String API_ROOT_CATEGORY = "/category";
 }

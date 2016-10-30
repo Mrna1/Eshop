@@ -39,7 +39,7 @@ public class ProductService {
         return productRepository.findProductbyMaxPrice(price);
     }
 
-    public void addCategory(Product product, Subcategory subcategory) {
+    public void addSubcategory(Product product, Subcategory subcategory) {
         if (product.getCategories().contains(subcategory)) {
             throw new ServiceException(
                     "Product already contais this subcategory. Product: "
