@@ -15,7 +15,7 @@ import java.util.List;
  * Created by frantisek.manak on 2.10.2016.
  */
 @RestController
-public class SubcategoryController {
+public class SubCategoryController {
 
     @Autowired
     SubcategoryService subcategoryService;
