@@ -20,8 +20,8 @@ public class CategoryService {
     @Autowired
     SubcategoryRepository subcategoryRepository;
 
-    public void createCategory(Category category) {
-        categoryRepository.save(category);
+    public Category createCategory(Category category) {
+        return categoryRepository.save(category);
     }
 
     public List<Category> findAllCategories() {

@@ -47,6 +47,7 @@ public class ProductService {
                             + subcategory.getId());
         }
         product.setCategory(subcategory);
+        productRepository.save(product);
     }
 
     public void removeCategory(Product product, Subcategory subcategory) {

@@ -17,8 +17,8 @@ public class SubcategoryService {
     @Autowired
     SubcategoryRepository subcategoryRepository;
 
-    public void createSubcategory(Subcategory subcategory) {
-        subcategoryRepository.save(subcategory);
+    public Subcategory createSubcategory(Subcategory subcategory) {
+        return subcategoryRepository.save(subcategory);
     }
 
     public void removeSubcategory(Subcategory subcategory) {
@@ -31,6 +31,7 @@ public class SubcategoryService {
 
     public void addCategory(Subcategory subcategory, Category category) {
         subcategory.setCategory(category);
+        subcategoryRepository.save(subcategory);
     }
 
     public List<Subcategory> findSubcategoryByCategoryName(String categoryName) {

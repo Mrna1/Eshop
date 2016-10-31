@@ -29,8 +29,7 @@ public class Category {
     @Column(name = "DESCRIPTION")
     private String Description;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @JsonIgnore
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<Subcategory> subcategories;
 
 
