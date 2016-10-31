@@ -1,10 +1,14 @@
 'use strict';
 
 angular.module('demo')
-    .controller('GeneralController', function (SubcategoryService, CategoryService) {
+    .controller('GeneralController', function (SubcategoryService, CategoryService, $scope) {
         var vm = {};
 
         vm.subcategories = [];
+
+        vm.category = {
+                    name: ''
+                };
 
         vm.loadSubcategories = function() {
             SubcategoryService.loadSubcategories().then(function (data) {
@@ -15,12 +19,6 @@ angular.module('demo')
         vm.loadCategories = function() {
             CategoryService.loadCategories().then(function (data) {
                 vm.categories = data;
-            });
-        };
-//need to be solve
-        vm.loadSubcategoriesByCategory = function(categoryName) {
-            SubcategoryService.loadSubcategoriesByCategory(categoryName).then(function (data) {
-                vm.categoriesSorted = data;
             });
         };
 

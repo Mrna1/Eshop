@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -99,9 +100,9 @@ public class EshopApplicationTests {
 	@Test
 	public void test() {
 
-		subcategoryService.findSubcategoryByCategoryName("kola").stream()
-				.map(sub -> sub.toString())
-				.forEach(System.out::println);
+		List<Category> list = categoryService.findAllCategories();
+		for (int x = 0; x < list.size(); x++)
+			System.out.println(list.get(x).getName());
 	}
 
 }

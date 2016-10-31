@@ -1,8 +1,11 @@
 package cz.eshop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * Created by frantisek.manak on 29.10.2016.
@@ -10,6 +13,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "CATEGORY")
+@NamedQuery(name = "Category.findAll", query = "SELECT c from Category c left join fetch c.subcategories")
 public class Category {
 
     @Id
@@ -24,6 +28,10 @@ public class Category {
 
     @Column(name = "DESCRIPTION")
     private String Description;
+
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Subcategory> subcategories;
 
 
     public Long getId() {
@@ -48,5 +56,13 @@ public class Category {
 
     public void setDescription(String description) {
         Description = description;
+    }
+
+    public List<Subcategory> getSubcategories() {
+        return subcategories;
+    }
+
+    public void setSubcategories(List<Subcategory> subcategories) {
+        this.subcategories = subcategories;
     }
 }

@@ -28,10 +28,9 @@ public class Subcategory {
     @Column(name = "DESCRIPTION")
     private String Description;
 
-    @ManyToOne
-    @JoinColumn(name = "CATEGORY_ID",
-            foreignKey = @ForeignKey(name = "CATEGORY_ID_FK")
-    )
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "CATEGORY_ID")
+    @JsonIgnore
     private Category category;
 
 

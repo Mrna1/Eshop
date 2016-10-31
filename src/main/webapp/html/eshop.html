@@ -9,8 +9,9 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="html/eshop.html">{{category.name}}<span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="javascript:void(0);" ng-repeat="subcategory in generalController.subcategories"
-                                   ui-sref="category_1.1" ui-sref-active="category_1.1">{{subcategory.name}}</a></li>
+                            <li><a href="javascript:void(0);"
+                                   ng-repeat="subcategories in generalController.category.subcategories"
+                                   ui-sref="category_1.1" ui-sref-active="category_1.1">{{subcategories.name}}</a></li>
                         </ul>
                     </li>
                 </ul>
