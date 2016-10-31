@@ -70,30 +70,31 @@ public class EshopApplicationTests {
 		subcategory3.setDescription("kolak");
 		subcategory4.setName("Horska kolobezka");
 
+		// attached db entities to property
+		category1 = categoryService.createCategory(category1);
+		category2 = categoryService.createCategory(category2);
+
+		subcategory1 = subcategoryService.createSubcategory(subcategory1);
+		subcategory2 = subcategoryService.createSubcategory(subcategory2);
+		subcategory3 = subcategoryService.createSubcategory(subcategory3);
+		subcategory4 = subcategoryService.createSubcategory(subcategory4);
+
 		subcategoryService.addCategory(subcategory1, category1);
 		subcategoryService.addCategory(subcategory2, category1);
 		subcategoryService.addCategory(subcategory3, category2);
 		subcategoryService.addCategory(subcategory4, category2);
-
-		productService.addSubcategory(product1, subcategory1);
-		productService.addSubcategory(product2, subcategory1);
-		productService.addSubcategory(product3, subcategory2);
-		productService.addSubcategory(product4, subcategory3);
-		productService.addSubcategory(product5, subcategory4);
-
-		categoryService.createCategory(category1);
-		categoryService.createCategory(category2);
-
-		subcategoryService.createSubcategory(subcategory1);
-		subcategoryService.createSubcategory(subcategory2);
-		subcategoryService.createSubcategory(subcategory3);
-		subcategoryService.createSubcategory(subcategory4);
 
 		productService.createProduct(product1);
 		productService.createProduct(product2);
 		productService.createProduct(product3);
 		productService.createProduct(product4);
 		productService.createProduct(product5);
+
+		productService.addSubcategory(product1, subcategory1);
+		productService.addSubcategory(product2, subcategory1);
+		productService.addSubcategory(product3, subcategory2);
+		productService.addSubcategory(product4, subcategory3);
+		productService.addSubcategory(product5, subcategory4);
 
 	}
 
@@ -102,7 +103,7 @@ public class EshopApplicationTests {
 
 		List<Category> list = categoryService.findAllCategories();
 		for (int x = 0; x < list.size(); x++)
-			System.out.println(list.get(x).getName());
+			System.out.println("[category: " + list.get(x).getName() + ", subcategories: " + list.get(x).getSubcategories() + "]");
 	}
 
 }

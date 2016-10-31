@@ -28,13 +28,13 @@ public class Subcategory {
     @Column(name = "DESCRIPTION")
     private String Description;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "CATEGORY_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CATEGORY_ID", referencedColumnName = "CATEGORY_ID")
     @JsonIgnore
     private Category category;
 
 
-    @ManyToMany(mappedBy = "subcategories", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "subcategories", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JsonIgnore
     private Set<Product> products = new HashSet<Product>();
 
