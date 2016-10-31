@@ -15,7 +15,7 @@ import java.util.List;
 public class SubcategoryService {
 
     @Autowired
-    SubcategoryRepository subcategoryRepository;
+    private SubcategoryRepository subcategoryRepository;
 
     public Subcategory createSubcategory(Subcategory subcategory) {
         return subcategoryRepository.save(subcategory);

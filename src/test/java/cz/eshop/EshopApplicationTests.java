@@ -21,13 +21,13 @@ import java.util.List;
 public class EshopApplicationTests {
 
 	@Autowired
-	ProductService productService;
+	private ProductService productService;
 
 	@Autowired
-	SubcategoryService subcategoryService;
+	private SubcategoryService subcategoryService;
 
 	@Autowired
-	CategoryService categoryService;
+	private CategoryService categoryService;
 
 
 	private	Product product1 = new Product();
@@ -102,8 +102,15 @@ public class EshopApplicationTests {
 	public void test() {
 
 		List<Category> list = categoryService.findAllCategories();
-		for (int x = 0; x < list.size(); x++)
+		for (int x = 0; x < list.size(); x++) {
+			System.out.println(list.get(x).getName());
 			System.out.println("[category: " + list.get(x).getName() + ", subcategories: " + list.get(x).getSubcategories() + "]");
+		}
+	}
+
+	@Test
+	public void test1() {
+
 	}
 
 }

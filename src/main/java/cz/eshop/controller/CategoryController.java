@@ -17,7 +17,7 @@ import java.util.List;
 public class CategoryController {
 
     @Autowired
-    CategoryService categoryService;
+    private CategoryService categoryService;
 
 
     @RequestMapping(value = Constans.API_ROOT_CATEGORY + "/search/all", method = RequestMethod.GET)

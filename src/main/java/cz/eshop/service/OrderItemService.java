@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class OrderItemService {
 
     @Autowired
-    OrderItemRepository orderItemRepository;
+    private OrderItemRepository orderItemRepository;
 
 
     public void createOrderItem(OrderItem orderItem) {

@@ -15,10 +15,9 @@ import java.util.List;
 public class CategoryService {
 
     @Autowired
-    CategoryRepository categoryRepository;
-
-    @Autowired
     SubcategoryRepository subcategoryRepository;
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     public Category createCategory(Category category) {
         return categoryRepository.save(category);
