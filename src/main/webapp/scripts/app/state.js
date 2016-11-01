@@ -25,11 +25,13 @@ angular.module('demo')
                 }
             })
         $stateProvider
-            .state('category_1.1', {
-                url: '/category_1.1',
+            .state('subcategory', {
+                url: '/subcategory/:id',
                 views: {
                     'content': {
-                        templateUrl: 'html/category_1.1.html',
+                        templateUrl: 'html/subcategory.html',
+                        controller: 'GeneralController as generalController'
+
                     }
                 }
             });

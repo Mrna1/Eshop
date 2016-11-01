@@ -16,4 +16,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query(value = "SELECT * FROM PRODUCT WHERE PRODUCT_PRICE < ?1", nativeQuery = true)
     public List<Product> findProductbyMaxPrice(BigDecimal price);
+
+    @Query(value = "select * from product p join product_to_subcategory ps on p.product_id = ps.product_id join subcategory s on ps.subcategory_id = s.subcategory_id where s.subcategory_id = ?1", nativeQuery = true)
+    public List<Product> findProductbySubcategoryId(Long subcategoryID);
 }

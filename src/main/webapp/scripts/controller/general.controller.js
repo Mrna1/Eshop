@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('demo')
-    .controller('GeneralController', function (SubcategoryService, CategoryService, $scope) {
+    .controller('GeneralController', function (SubcategoryService, CategoryService, $scope, $state) {
         var vm = {};
 
         vm.category = {
@@ -12,6 +12,11 @@ angular.module('demo')
             CategoryService.loadCategories().then(function (data) {
                 vm.categories = data;
             });
+        };
+
+        vm.goToSubcategoryPage = function (id) {
+                $state.go("subcategory", {id : id})
+
         };
 
         vm.loadCategories();
