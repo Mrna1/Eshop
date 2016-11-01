@@ -4,25 +4,17 @@ angular.module('demo')
     .controller('GeneralController', function (SubcategoryService, CategoryService, $scope) {
         var vm = {};
 
-        vm.subcategories = [];
-
         vm.category = {
-                    name: ''
-                };
-
-        vm.loadSubcategories = function() {
-            SubcategoryService.loadSubcategories().then(function (data) {
-                vm.subcategories = data;
-            });
+            name: ''
         };
 
-        vm.loadCategories = function() {
+        vm.loadCategories = function () {
             CategoryService.loadCategories().then(function (data) {
                 vm.categories = data;
             });
         };
 
         vm.loadCategories();
-        vm.loadSubcategories();
+
         return vm;
     });
