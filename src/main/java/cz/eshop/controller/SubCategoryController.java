@@ -18,7 +18,7 @@ import java.util.List;
 public class SubCategoryController {
 
     @Autowired
-    SubcategoryService subcategoryService;
+    private SubcategoryService subcategoryService;
 
 
     @RequestMapping(value = Constans.API_ROOT_SUBCATEGORY + "/search/all", method = RequestMethod.GET)

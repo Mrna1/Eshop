@@ -2,7 +2,6 @@ package cz.eshop.service;
 
 import cz.eshop.entity.Category;
 import cz.eshop.repository.CategoryRepository;
-import cz.eshop.repository.SubcategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +13,6 @@ import java.util.List;
 @Service
 public class CategoryService {
 
-    @Autowired
-    SubcategoryRepository subcategoryRepository;
     @Autowired
     private CategoryRepository categoryRepository;
 

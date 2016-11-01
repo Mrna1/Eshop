@@ -15,7 +15,7 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    ProductService productService;
+    private ProductService productService;
 
     @RequestMapping(value = Constans.API_ROOT_PRODUCT + "/search/{id}", method = RequestMethod.GET)
     public Product searchByName(@PathVariable Long id) {
