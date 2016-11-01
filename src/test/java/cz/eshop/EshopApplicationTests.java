@@ -104,7 +104,7 @@ public class EshopApplicationTests {
 		List<Category> list = categoryService.findAllCategories();
 		for (int x = 0; x < list.size(); x++) {
 			System.out.println(list.get(x).getName());
-			System.out.println("[category: " + list.get(x).getName() + ", subcategories: " + list.get(x).getSubcategories() + "]");
+			System.out.println("[category: " + list.get(x).getName() + ", subcategories: " + list.get(x).getSubcategories().get(1).getName() + "]");
 		}
 	}
 

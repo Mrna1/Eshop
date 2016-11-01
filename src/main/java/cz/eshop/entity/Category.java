@@ -1,7 +1,5 @@
 package cz.eshop.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -13,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "CATEGORY")
-@NamedQuery(name = "Category.findAll", query = "SELECT c from Category c left join fetch c.subcategories")
+@NamedQuery(name = "Category.findAll", query = "SELECT distinct c from Category c left join fetch c.subcategories")
 public class Category {
 
     @Id
@@ -29,7 +27,7 @@ public class Category {
     @Column(name = "DESCRIPTION")
     private String Description;
 
-    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY, mappedBy = "category")
     private List<Subcategory> subcategories;
 
 
