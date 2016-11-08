@@ -8,36 +8,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body ng-app="demo">
-<div id="page-wrap">
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Eshop Franta</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="javascript:void(0);" ui-sref="home" ui-sref-active="home">Home</a></li>
-                    <li><a href="javascript:void(0);" ui-sref="eshop" ui-sref-active="eshop">Eshop</a></li>
-                    <li><a href="#">Galerie</a></li>
-                    <li><a href="#">Kontakt</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <img id="header-pic" src="pic/kolo.png">
-
-</div>
 
 
 <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
@@ -46,13 +17,13 @@
 <!-- CUSTOM JS -->
 <script type="text/javascript" src="scripts/app/app.js"></script>
 <script type="text/javascript" src="scripts/app/state.js"></script>
-<script type="text/javascript" src="scripts/controller/home.controller.js"></script>
 <script type="text/javascript" src="scripts/controller/general.controller.js"></script>
-
+<script type="text/javascript" src="scripts/controller/all-products.controller.js"></script>
 
 <!-- SERVICE -->
 <script type="text/javascript" src="scripts/service/subcategory.service.js"></script>
 <script type="text/javascript" src="scripts/service/category.service.js"></script>
+<script type="text/javascript" src="scripts/service/product.service.js"></script>
 
 
 <div ui-view="content">

@@ -11,28 +11,25 @@ angular.module('demo')
                 views: {
                     'content': {
                         templateUrl: 'html/home.html',
-                    }
-                }
-            })
-        $stateProvider
-            .state('eshop', {
-                url: '/eshop',
-                views: {
-                    'content': {
-                        templateUrl: 'html/eshop.html',
                         controller: 'GeneralController as generalController'
                     }
                 }
             })
-        $stateProvider
-            .state('subcategory', {
-                url: '/subcategory/:id',
+            .state('home.subcategory', {
+                url: 'home/subcategory/:id',
                 views: {
                     'content': {
                         templateUrl: 'html/subcategory.html',
-                        controller: 'GeneralController as generalController'
-
                     }
                 }
-            });
+            })
+            .state('home.all-products', {
+                 url: 'home/all-products',
+                 views: {
+                     'content': {
+                         templateUrl: 'html/all_products.html',
+                         controller: 'AllProductsController as allProductsContoller'
+                     }
+                 }
+             });
     });

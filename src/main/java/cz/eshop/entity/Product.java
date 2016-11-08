@@ -41,19 +41,19 @@ public class Product {
 
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "PRODUCT_TO_SUBCATEGORY", joinColumns = {
+    @JoinTable(name = "PRODUCT2SUBCATEGORY", joinColumns = {
             @JoinColumn(name = "PRODUCT_ID", nullable = false, updatable = false) },
             inverseJoinColumns = {@JoinColumn(name = "SUBCATEGORY_ID",
                     nullable = false, updatable = false) })
     @JsonIgnore
     private Set<Subcategory> subcategories = new HashSet<Subcategory>();
 
-    public void setCategory(Subcategory c) {
+    public void setSubcategory(Subcategory c) {
         subcategories.add(c);
         c.addProduct(this);
     }
 
-    public void removeCategory(Subcategory subcategory)
+    public void removeSubcategories(Subcategory subcategory)
     {
         this.subcategories.remove(subcategory);
         subcategories.remove(this);
@@ -99,7 +99,7 @@ public class Product {
         this.addedDate = addedDate;
     }
 
-    public Set<Subcategory> getCategories() {
+    public Set<Subcategory> getSubcategories() {
         return subcategories;
     }
 

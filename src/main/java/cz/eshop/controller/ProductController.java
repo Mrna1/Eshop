@@ -21,7 +21,7 @@ public class ProductController {
     private ProductService productService;
 
     @RequestMapping(value = Constans.API_ROOT_PRODUCT + "/search/{subcategoryId}", method = RequestMethod.GET)
-    public List<Product> searchByName(@PathVariable Long subcategoryId) {
+    public List<Product> searchBySubcategoryId(@PathVariable Long subcategoryId) {
         return productService.findProductsBySubcategoryID(subcategoryId);
     }
 
@@ -30,10 +30,10 @@ public class ProductController {
 //        return productService.findProductById(id);
 //    }
 //
-//    @RequestMapping(value = Constans.API_ROOT_PRODUCT + "/search/all", method = RequestMethod.GET)
-//    public List<Product> searchForAllProducts() {
-//        return productService.findAllProducts();
-//    }
+@RequestMapping(value = Constans.API_ROOT_PRODUCT + "/search/all", method = RequestMethod.GET)
+public List<Product> searchForAllProducts() {
+    return productService.findAllProducts();
+}
 //
 //    @RequestMapping(value = Constans.API_ROOT_PRODUCT + "/create", method = RequestMethod.POST)
 //    public void createProduct(@RequestBody Product product) {

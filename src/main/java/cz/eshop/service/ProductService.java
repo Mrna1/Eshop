@@ -30,32 +30,32 @@ public class ProductService {
 //        return productRepository.findOne(id);
 //    }
 //
-//    public List<Product> findAllProducts(){
-//        return productRepository.findAll();
-//    }
+public List<Product> findAllProducts() {
+    return productRepository.findAll();
+}
 //
 //    public List<Product> findAllToMaxPrice(BigDecimal price){
 //        return productRepository.findProductbyMaxPrice(price);
 //    }
 
     public void addSubcategory(Product product, Subcategory subcategory) {
-        if (product.getCategories().contains(subcategory)) {
+        if (product.getSubcategories().contains(subcategory)) {
             throw new ServiceException(
                     "Product already contais this subcategory. Product: "
                             + product.getId() + ", subcategory: "
                             + subcategory.getId());
         }
-        product.setCategory(subcategory);
+        product.setSubcategory(subcategory);
         productRepository.save(product);
     }
 
-//    public void removeCategory(Product product, Subcategory subcategory) {
+//    public void removeSubcategories(Product product, Subcategory subcategory) {
 //        if (product == null) {
 //            throw new ServiceException(
 //                    "Product doesn't exist"
 //            );
 //        }
-//        product.removeCategory(subcategory);
+//        product.removeSubcategories(subcategory);
 //    }
 
     public List<Product> findProductsBySubcategoryID(Long subcategoryId) {
