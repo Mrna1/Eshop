@@ -18,13 +18,42 @@
 <script type="text/javascript" src="scripts/app/app.js"></script>
 <script type="text/javascript" src="scripts/app/state.js"></script>
 <script type="text/javascript" src="scripts/controller/general.controller.js"></script>
-<script type="text/javascript" src="scripts/controller/all-products.controller.js"></script>
+<script type="text/javascript" src="scripts/controller/home.controller.js"></script>
 
 <!-- SERVICE -->
 <script type="text/javascript" src="scripts/service/subcategory.service.js"></script>
 <script type="text/javascript" src="scripts/service/category.service.js"></script>
 <script type="text/javascript" src="scripts/service/product.service.js"></script>
 
+
+<div id="page-wrap" ng-controller="GeneralController as generalController">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="javascript:void(0);" ui-sref="home" ui-sref-active="home">Home</a></li>
+                    <!--iterujeme cez vsetky kategorie ktore prisli z REST-->
+                    <li class="dropdown" ng-repeat="category in generalController.categories">
+                        <!--vypis nazvu kategorie-->
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">{{category.name}}<span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <!--tu pouzivame category, pretoze sme v tele prveho repeat z ktoreho sme v konkretnej kategorii-->
+                            <li><a ng-repeat="subcategory in category.subcategories"
+                                   href="javascript:void(0);"
+                                   ng-click="generalController.goToSubcategoryPage(subcategory.id)">{{subcategory.name}}</a>
+                                <!--vypiseme subcategory name-->
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</div>
 
 <div ui-view="content">
 

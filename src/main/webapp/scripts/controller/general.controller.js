@@ -17,11 +17,11 @@ angular.module('demo')
 
 
         vm.goToSubcategoryPage = function (id) {
-                $state.go("home.subcategory", {id : id})
+                $state.go("subcategory", {id : id})
         };
 
         vm.goToAllProductsPage = function () {
-                $state.go("home.all-products")
+                $state.go("home")
         };
 
         vm.loadCategories();
