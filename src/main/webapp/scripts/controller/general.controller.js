@@ -5,7 +5,7 @@ angular.module('demo')
         var vm = {};
 
         vm.category = {
-            name: ''
+
         };
 
 

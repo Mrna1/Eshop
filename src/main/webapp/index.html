@@ -34,20 +34,21 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="javascript:void(0);" ui-sref="home" ui-sref-active="home">Home</a></li>
-                    <!--iterujeme cez vsetky kategorie ktore prisli z REST-->
                     <li class="dropdown" ng-repeat="category in generalController.categories">
-                        <!--vypis nazvu kategorie-->
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="">{{category.name}}<span
+                        <a class="dropdown-toggle" data-toggle="dropdown"
+                           href="javascript:void(0);">{{category.name}}<span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <!--tu pouzivame category, pretoze sme v tele prveho repeat z ktoreho sme v konkretnej kategorii-->
                             <li><a ng-repeat="subcategory in category.subcategories"
                                    href="javascript:void(0);"
                                    ng-click="generalController.goToSubcategoryPage(subcategory.id)">{{subcategory.name}}</a>
-                                <!--vypiseme subcategory name-->
                             </li>
                         </ul>
                     </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Admin name</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </div>
         </div>
