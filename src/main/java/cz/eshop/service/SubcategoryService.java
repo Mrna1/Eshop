@@ -29,6 +29,10 @@ public class SubcategoryService {
         return subcategoryRepository.findAll();
     }
 
+    public Subcategory findSubcategoriesById(Long id) {
+        return subcategoryRepository.findSubcategoryById(id);
+    }
+
     public void addCategory(Subcategory subcategory, Category category) {
         subcategory.setCategory(category);
         subcategoryRepository.save(subcategory);

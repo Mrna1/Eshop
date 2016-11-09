@@ -7,7 +7,7 @@ angular.module('demo')
 
         $stateProvider
             .state('home', {
-                 url: 'home',
+                 url: '/',
                  views: {
                      'content': {
                          templateUrl: 'html/home.html',
@@ -17,10 +17,11 @@ angular.module('demo')
             })
         $stateProvider
             .state('subcategory', {
-                url: 'home/subcategory/:id',
+                url: '/subcategory/:id',
                 views: {
                     'content': {
                         templateUrl: 'html/subcategory.html',
+                        controller: 'SubcategoryController as subcategoryController'
                     }
                 }
              });

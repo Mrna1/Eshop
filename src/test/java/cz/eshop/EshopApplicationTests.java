@@ -2,6 +2,7 @@ package cz.eshop;
 
 import cz.eshop.controller.CategoryController;
 import cz.eshop.controller.ProductController;
+import cz.eshop.controller.SubCategoryController;
 import cz.eshop.entity.Category;
 import cz.eshop.entity.Product;
 import cz.eshop.entity.Subcategory;
@@ -36,6 +37,9 @@ public class EshopApplicationTests {
 
 	@Autowired
 	private ProductController productController;
+
+	@Autowired
+	private SubCategoryController subCategoryController;
 
 
 	private	Product product1 = new Product();
@@ -123,4 +127,11 @@ public class EshopApplicationTests {
 		}
 	}
 
+	@Test
+	public void test2() {
+		Subcategory subcategory = subCategoryController.searchById(1L);
+		System.out.println("[subcategory: " + subcategory.getName() + "]");
+	}
 }
+
+

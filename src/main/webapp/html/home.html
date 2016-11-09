@@ -2,23 +2,24 @@
 
     <h1>All products</h1>
 
-    <table border="2">
+
+    <table class="table">
         <thead>
         <tr>
-            <td>Product Name</td>
-            <td>Price</td>
-            <td>Description</td>
-            <td>Created date</td>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Created date</th>
         </tr>
         </thead>
-        <tr ng-repeat="product in homeContoller.products">
+        <tbody>
+        <tr class="success" ng-repeat="product in homeContoller.products">
             <td>{{product.name}}</td>
             <td>{{product.price}}</td>
             <td>{{product.description}}</td>
             <td>{{product.addedDate}}</td>
         </tr>
-
+        </tbody>
     </table>
-
 
 </div>

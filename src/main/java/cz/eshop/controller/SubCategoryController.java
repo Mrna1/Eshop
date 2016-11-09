@@ -26,9 +26,14 @@ public class SubCategoryController {
         return subcategoryService.findAllSubcategories();
     }
 
-    @RequestMapping(value = Constans.API_ROOT_SUBCATEGORY + "/search/{name}", method = RequestMethod.DELETE)
+    @RequestMapping(value = Constans.API_ROOT_SUBCATEGORY + "/search/comb/{name}", method = RequestMethod.GET)
     public List<Subcategory> searchByCategoryName(@PathVariable(value = "name") String name) {
         return subcategoryService.findSubcategoryByCategoryName(name);
+    }
+
+    @RequestMapping(value = Constans.API_ROOT_SUBCATEGORY + "/search/{id}", method = RequestMethod.GET)
+    public Subcategory searchById(@PathVariable(value = "id") Long id) {
+        return subcategoryService.findSubcategoriesById(id);
     }
 
 }

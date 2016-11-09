@@ -1,6 +1,24 @@
 <div id="page-wrap">
 
-    <h1>Subcategory</h1>
+    <h1 ng-repeat="subcategory in subcategoryController.subcategory">{{subcategory.name}}</h1>
 
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Created date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="danger" ng-repeat="product in subcategoryController.products">
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.addedDate}}</td>
+        </tr>
+        </tbody>
+    </table>
 
 </div>
